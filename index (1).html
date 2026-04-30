@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sam Haddad — IT & AI Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #05080a;
+  --bg2: #0a0f12;
+  --surface: #0f161a;
+  --border: #182028;
+  --border2: #1e2d3a;
+  --gold: #c9a84c;
+  --gold2: #f0cc7a;
+  --cyan: #4dd9e8;
+  --muted: #4a6070;
+  --text: #c8dce8;
+  --white: #f0f6fa;
+  --display: 'Bebas Neue', sans-serif;
+  --body: 'DM Sans', sans-serif;
+  --mono: 'DM Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: var(--body); overflow-x: hidden; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5vw; height: 64px;
+  background: rgba(5,8,10,0.92); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-family: var(--display); font-size: 22px; letter-spacing: 3px; color: var(--gold); text-decoration: none; }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; color: var(--muted); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover { color: var(--gold); }
+
+/* HERO */
+#hero {
+  min-height: 100vh; display: grid; grid-template-columns: 1.1fr 0.9fr;
+  align-items: center; padding: 100px 5vw 60px; gap: 40px; position: relative; overflow: hidden;
+}
+#hero::before {
+  content: ''; position: absolute; top: -200px; right: -200px;
+  width: 700px; height: 700px;
+  background: radial-gradient(ellipse, rgba(201,168,76,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-tag { font-family: var(--mono); font-size: 11px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; opacity: 0; animation: up 0.6s ease forwards 0.1s; }
+.hero-name { font-family: var(--display); font-size: clamp(80px, 11vw, 160px); line-height: 0.88; color: var(--white); letter-spacing: 2px; opacity: 0; animation: up 0.7s ease forwards 0.2s; }
+.hero-name .gold { color: var(--gold); }
+.hero-sub { margin-top: 28px; font-size: 15px; line-height: 1.85; color: var(--muted); max-width: 420px; opacity: 0; animation: up 0.7s ease forwards 0.35s; }
+.hero-sub strong { color: var(--text); font-weight: 500; }
+.hero-avail { display: inline-block; margin-top: 12px; font-family: var(--mono); font-size: 11px; letter-spacing: 2px; color: var(--gold); border: 1px solid rgba(201,168,76,0.3); padding: 5px 12px; }
+.hero-ctas { display: flex; gap: 12px; margin-top: 36px; opacity: 0; animation: up 0.7s ease forwards 0.5s; }
+.btn { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 13px 24px; text-decoration: none; transition: all 0.2s; display: inline-block; }
+.btn-gold { background: var(--gold); color: var(--bg); }
+.btn-gold:hover { background: var(--gold2); }
+.btn-outline { border: 1px solid var(--border2); color: var(--muted); }
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+.hero-right { display: flex; flex-direction: column; gap: 2px; opacity: 0; animation: fadeIn 1s ease forwards 0.7s; }
+.stat-card { background: var(--surface); border: 1px solid var(--border); padding: 20px 24px; display: flex; align-items: center; gap: 20px; transition: border-color 0.2s; }
+.stat-card:hover { border-color: var(--gold); }
+.stat-num { font-family: var(--display); font-size: 52px; color: var(--gold); line-height: 1; min-width: 80px; }
+.stat-label strong { display: block; color: var(--text); font-size: 14px; margin-bottom: 3px; }
+.stat-label { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* SECTIONS */
+.section { padding: 100px 5vw; max-width: 1300px; margin: 0 auto; }
+.section-wrap { border-top: 1px solid var(--border); }
+
+.section-label { display: flex; align-items: center; gap: 16px; margin-bottom: 56px; }
+.label-num { font-family: var(--mono); font-size: 11px; color: var(--gold); letter-spacing: 2px; }
+.label-title { font-family: var(--display); font-size: clamp(36px, 5vw, 64px); color: var(--white); letter-spacing: 2px; }
+.label-line { flex: 1; height: 1px; background: var(--border); }
+
+/* ABOUT */
+.about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: start; }
+.about-text { font-size: 16px; line-height: 1.9; color: var(--text); }
+.about-text p + p { margin-top: 20px; }
+.about-text strong { color: var(--gold); font-weight: 500; }
+.about-aside { display: flex; flex-direction: column; gap: 32px; }
+.block-title { font-family: var(--mono); font-size: 10px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 14px; }
+.cert-item { display: flex; align-items: flex-start; gap: 10px; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 13px; color: var(--text); line-height: 1.4; }
+.cert-item:last-child { border-bottom: none; }
+.cert-check { color: var(--cyan); font-size: 14px; margin-top: 1px; flex-shrink: 0; }
+.cert-issuer { font-size: 11px; color: var(--muted); display: block; margin-top: 2px; }
+.skill-row { margin-bottom: 14px; }
+.skill-name { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 1px; margin-bottom: 6px; }
+.skill-bar { height: 2px; background: var(--border2); overflow: hidden; }
+.skill-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--cyan)); transform: scaleX(0); transform-origin: left; transition: transform 1.1s ease; }
+.skill-fill.go { transform: scaleX(1); }
+
+/* PROJECTS */
+.projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.project-card { background: var(--surface); padding: 36px; position: relative; overflow: hidden; transition: background 0.25s; }
+.project-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), var(--cyan)); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+.project-card:hover { background: var(--bg2); }
+.project-card:hover::after { transform: scaleX(1); }
+.project-card.wide { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.project-idx { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 2px; margin-bottom: 20px; }
+.project-title { font-family: var(--display); font-size: 28px; color: var(--white); letter-spacing: 1px; line-height: 1.1; margin-bottom: 14px; }
+.project-desc { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 24px; }
+.project-stack { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+.stack-pill { font-family: var(--mono); font-size: 10px; letter-spacing: 1px; padding: 4px 10px; border: 1px solid var(--border2); color: var(--cyan); text-transform: uppercase; }
+.project-link { font-family: var(--mono); font-size: 11px; color: var(--gold); text-decoration: none; letter-spacing: 1px; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.project-link:hover { border-color: var(--gold); }
+.terminal { background: #050d10; border: 1px solid var(--border2); padding: 24px; font-family: var(--mono); font-size: 12px; line-height: 2; color: var(--muted); }
+.terminal .cmd { color: var(--cyan); }
+.terminal .ok { color: #4ade80; }
+.terminal .val { color: var(--white); }
+
+/* EXPERIENCE */
+.exp-timeline { position: relative; padding-left: 48px; }
+.exp-timeline::before { content: ''; position: absolute; left: 8px; top: 8px; bottom: 8px; width: 1px; background: var(--border2); }
+.exp-item { position: relative; padding-bottom: 56px; }
+.exp-item::before { content: ''; position: absolute; left: -44px; top: 8px; width: 14px; height: 14px; border: 2px solid var(--gold); background: var(--bg); border-radius: 50%; }
+.exp-date { font-family: var(--mono); font-size: 10px; color: var(--gold); letter-spacing: 2px; margin-bottom: 10px; }
+.exp-role { font-family: var(--display); font-size: 28px; color: var(--white); letter-spacing: 1px; margin-bottom: 4px; }
+.exp-company { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: 1px; margin-bottom: 20px; }
+.exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.exp-bullets li { font-size: 14px; color: var(--text); line-height: 1.65; padding-left: 18px; position: relative; }
+.exp-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-family: var(--mono); }
+
+/* CONTACT */
+#contact-wrap { border-top: 1px solid var(--border); text-align: center; padding: 120px 5vw; }
+.contact-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; }
+.contact-heading { font-family: var(--display); font-size: clamp(56px, 9vw, 120px); color: var(--white); letter-spacing: 2px; line-height: 0.9; margin-bottom: 20px; }
+.contact-heading span { color: var(--gold); }
+.contact-sub { font-size: 15px; color: var(--muted); max-width: 460px; margin: 0 auto; line-height: 1.8; }
+.contact-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 48px; }
+.contact-link { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 14px 28px; border: 1px solid var(--border2); color: var(--muted); text-decoration: none; transition: all 0.2s; }
+.contact-link:hover { border-color: var(--gold); color: var(--gold); }
+.contact-link.primary { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+.contact-link.primary:hover { background: var(--gold2); border-color: var(--gold2); color: var(--bg); }
+
+/* FOOTER */
+footer { border-top: 1px solid var(--border); padding: 28px 5vw; display: flex; justify-content: space-between; align-items: center; }
+footer p { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 1px; }
+
+/* ANIMATIONS */
+@keyframes up { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { gap: 16px; }
+  #hero { grid-template-columns: 1fr; padding: 90px 20px 60px; }
+  .hero-right { display: none; }
+  .about-grid, .project-card.wide { grid-template-columns: 1fr; }
+  .about-grid { gap: 40px; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-card.wide { grid-column: span 1; gap: 32px; }
+  .section { padding: 72px 20px; }
+  footer { flex-direction: column; gap: 8px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo">SH</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact-wrap">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-tag">// IT & AI Portfolio · Toronto, Canada</p>
+    <h1 class="hero-name">SAM<br><span class="gold">HADDAD</span></h1>
+    <p class="hero-sub">
+      Final-year <strong>Information Technology</strong> student at York University.<br>
+      Building with <strong>Python · Java · SQL · Azure · AI/ML</strong>.<br>
+      Certified in <strong>AZ-900 & AI-900</strong>. Graduating June 2026.
+      <br><span class="hero-avail">Open to Canada & Middle East</span>
+    </p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn btn-gold">View Projects</a>
+      <a href="https://github.com/samhadd-ad" target="_blank" class="btn btn-outline">GitHub</a>
+      <a href="#contact-wrap" class="btn btn-outline">Contact</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stat-card">
+      <div class="stat-num">3+</div>
+      <div class="stat-label"><strong>Years Experience</strong>AI systems, tech support & ops</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">5</div>
+      <div class="stat-label"><strong>Certifications</strong>Azure AZ-900, AI-900, Google IT & more</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">4</div>
+      <div class="stat-label"><strong>GitHub Projects</strong>ML, real-time apps, APIs & cloud</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">3</div>
+      <div class="stat-label"><strong>Languages</strong>English · Arabic · French</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div class="section-wrap" id="about">
+  <div class="section">
+    <div class="section-label reveal">
+      <span class="label-num">01 //</span>
+      <h2 class="label-title">ABOUT</h2>
+      <div class="label-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I'm a final-year <strong>Information Technology</strong> student at York University graduating June 2026, focused on <strong>data analysis, cloud computing, and AI</strong>. I'm drawn to the intersection of intelligent systems and real-world operations — building things that solve actual problems at scale.</p>
+        <p>For three years I worked as an <strong>Automotive AI Surveillance Technician</strong>, deploying and maintaining AI-powered systems in a live fleet environment. That gave me something most new grads don't have: genuine exposure to how AI performs under real operational pressure, not just in a classroom.</p>
+        <p>I'm fluent in <strong>English and Arabic</strong>, conversational in French, and actively pursuing opportunities in <strong>Canada and Middle East</strong> — particularly in data, cloud, and AI-adjacent roles where I can grow fast and make a real impact.</p>
+        <p>Currently preparing for <strong>AZ-104</strong> (Azure Administrator) and the <strong>Google Advanced Data Analytics</strong> certificate to deepen my cloud and data expertise.</p>
+      </div>
+      <div class="about-aside reveal">
+        <div>
+          <p class="block-title">Certifications</p>
+          <div class="cert-item"><span class="cert-check">✓</span><div>Microsoft Azure Fundamentals — AZ-900<span class="cert-issuer">Microsoft Learn</span></div></div>
+          <div class="cert-item"><span class="cert-check">✓</span><div>AI Fundamentals — AI-900<span class="cert-issuer">Microsoft Learn</span></div></div>
+          <div class="cert-item"><span class="cert-check">✓</span><div>Google IT Support Professional<span class="cert-issuer">Coursera</span></div></div>
+          <div class="cert-item"><span class="cert-check">✓</span><div>Introduction to Python Programming<span class="cert-issuer">SoloLearn</span></div></div>
+          <div class="cert-item"><span class="cert-check">✓</span><div>HTML, CSS & JavaScript<span class="cert-issuer">freeCodeCamp</span></div></div>
+        </div>
+        <div>
+          <p class="block-title">Technical Skills</p>
+          <div class="skill-row"><div class="skill-name">Python</div><div class="skill-bar"><div class="skill-fill" data-w="0.88"></div></div></div>
+          <div class="skill-row"><div class="skill-name">SQL & Databases</div><div class="skill-bar"><div class="skill-fill" data-w="0.85"></div></div></div>
+          <div class="skill-row"><div class="skill-name">JavaScript / Node.js</div><div class="skill-bar"><div class="skill-fill" data-w="0.78"></div></div></div>
+          <div class="skill-row"><div class="skill-name">Microsoft Azure</div><div class="skill-bar"><div class="skill-fill" data-w="0.72"></div></div></div>
+          <div class="skill-row"><div class="skill-name">Machine Learning / AI</div><div class="skill-bar"><div class="skill-fill" data-w="0.70"></div></div></div>
+          <div class="skill-row"><div class="skill-name">Java</div><div class="skill-bar"><div class="skill-fill" data-w="0.65"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="section-wrap" id="projects">
+  <div class="section">
+    <div class="section-label reveal">
+      <span class="label-num">02 //</span>
+      <h2 class="label-title">PROJECTS</h2>
+      <div class="label-line"></div>
+    </div>
+    <div class="projects-grid">
+
+      <div class="project-card wide reveal">
+        <div>
+          <p class="project-idx">001 · FEATURED</p>
+          <h3 class="project-title">Medical Appointment No-Show Prediction</h3>
+          <p class="project-desc">ML model trained on 110,527 real hospital appointments to predict patient no-shows. Full pipeline: data preprocessing, feature engineering (wait time, SMS reminders, age groups), model comparison across 3 classifiers, and a Streamlit app for live predictions.</p>
+          <div class="project-stack">
+            <span class="stack-pill">Python</span><span class="stack-pill">Scikit-learn</span><span class="stack-pill">Pandas</span><span class="stack-pill">Streamlit</span><span class="stack-pill">ML</span>
+          </div>
+          <a href="https://github.com/samhadd-ad/Medical-Appointment-noShow" target="_blank" class="project-link">View on GitHub →</a>
+        </div>
+        <div class="terminal">
+          <div><span class="cmd">$</span> python src/train.py</div>
+          <div><span class="ok">✓</span> Loading dataset... <span class="val">110,527 rows</span></div>
+          <div><span class="ok">✓</span> Feature engineering complete</div>
+          <div><span class="ok">✓</span> Logistic Regression  AUC = <span class="val">0.6512</span></div>
+          <div><span class="ok">✓</span> Random Forest        AUC = <span class="val">0.7401</span></div>
+          <div><span class="ok">✓</span> Gradient Boosting    AUC = <span class="val">0.7634</span></div>
+          <div><span class="ok">✓</span> Model saved → <span class="val">outputs/model.pkl</span></div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <p class="project-idx">002</p>
+        <h3 class="project-title">Resume Analyzer</h3>
+        <p class="project-desc">AI-powered tool that parses resume PDFs, extracts skills using NLP, compares them against a job description, and outputs a keyword match score with missing skills identified.</p>
+        <div class="project-stack"><span class="stack-pill">Python</span><span class="stack-pill">PyPDF2</span><span class="stack-pill">NLP</span><span class="stack-pill">AI</span></div>
+        <a href="https://github.com/samhadd-ad/resume-analyzer" target="_blank" class="project-link">View on GitHub →</a>
+      </div>
+
+      <div class="project-card reveal">
+        <p class="project-idx">003</p>
+        <h3 class="project-title">Real-Time Chat App</h3>
+        <p class="project-desc">Full-stack chat application with live bi-directional messaging via WebSockets and Socket.io. Features chat rooms, typing indicators, and online user tracking — built with Node.js and React.</p>
+        <div class="project-stack"><span class="stack-pill">Node.js</span><span class="stack-pill">Socket.io</span><span class="stack-pill">React</span><span class="stack-pill">JavaScript</span></div>
+        <a href="https://github.com/samhadd-ad/Chat-App-With-WebSockets" target="_blank" class="project-link">View on GitHub →</a>
+      </div>
+
+      <div class="project-card reveal">
+        <p class="project-idx">004</p>
+        <h3 class="project-title">Student Portal Backend</h3>
+        <p class="project-desc">Backend system with user authentication, course management, and task tracking. Built with Node.js and MongoDB — demonstrating RESTful API design, database integration, and session management.</p>
+        <div class="project-stack"><span class="stack-pill">Node.js</span><span class="stack-pill">MongoDB</span><span class="stack-pill">REST API</span><span class="stack-pill">JavaScript</span></div>
+        <a href="https://github.com/samhadd-ad/Student-Portal" target="_blank" class="project-link">View on GitHub →</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="section-wrap" id="experience">
+  <div class="section">
+    <div class="section-label reveal">
+      <span class="label-num">03 //</span>
+      <h2 class="label-title">EXPERIENCE</h2>
+      <div class="label-line"></div>
+    </div>
+    <div class="exp-timeline">
+      <div class="exp-item reveal">
+        <p class="exp-date">2022 — 2025</p>
+        <h3 class="exp-role">AUTOMOTIVE AI SURVEILLANCE TECHNICIAN</h3>
+        <p class="exp-company">AEROPORT TAXI & LIMOUSINE · Toronto, Canada</p>
+        <ul class="exp-bullets">
+          <li>Deployed and maintained AI-powered surveillance and accident-prevention systems across a vehicle fleet — real-world exposure to AI in production environments.</li>
+          <li>Monitored real-time data feeds to proactively identify and resolve technical failures, applying data-driven decision-making under live operational pressure.</li>
+          <li>Performed system diagnostics and safety compliance testing against operational benchmarks.</li>
+          <li>Trained drivers on system functionality, translating complex technical concepts into clear, accessible guidance.</li>
+        </ul>
+      </div>
+      <div class="exp-item reveal">
+        <p class="exp-date">2022 — 2025</p>
+        <h3 class="exp-role">CUSTOMER SERVICE REPRESENTATIVE</h3>
+        <p class="exp-company">AEROPORT TAXI & LIMOUSINE · Toronto, Canada</p>
+        <ul class="exp-bullets">
+          <li>Managed high-volume bookings, dispatch coordination, and scheduling for airport taxi and limousine services.</li>
+          <li>Maintained accurate operational records, improving workflow efficiency and reducing scheduling conflicts.</li>
+          <li>Resolved customer inquiries and complaints in a fast-paced environment with strong communication and multitasking.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact-wrap">
+  <p class="contact-eyebrow reveal">// Graduating June 2026 · Available for full-time roles</p>
+  <h2 class="contact-heading reveal">LET'S<br><span>TALK</span></h2>
+  <p class="contact-sub reveal">Targeting data, cloud & AI roles in Canada and Middle East.<br>Fluent in English & Arabic. Open to relocation.</p>
+  <div class="contact-links reveal">
+    <a href="mailto:samhaddad896@gmail.com" class="contact-link primary">Email Me</a>
+    <a href="https://www.linkedin.com/in/sam-haddad-967604258/" target="_blank" class="contact-link">LinkedIn</a>
+    <a href="https://github.com/samhadd-ad" target="_blank" class="contact-link">GitHub</a>
+    <a href="tel:+16478659933" class="contact-link">+1 (647) 865-9933</a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Sam Haddad</p>
+  <p>Toronto, Canada · Open to relocation</p>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  const barObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.skill-fill').forEach(b => {
+          b.style.transform = `scaleX(${b.dataset.w})`;
+        });
+        barObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.about-aside').forEach(el => barObs.observe(el));
+</script>
+</body>
+</html>
