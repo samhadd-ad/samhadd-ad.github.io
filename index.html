@@ -183,9 +183,9 @@ footer p { font-family: var(--mono); font-size: 11px; color: var(--muted); lette
     <p class="hero-tag">// IT & AI Portfolio · Toronto, Canada</p>
     <h1 class="hero-name">SAM<br><span class="gold">HADDAD</span></h1>
     <p class="hero-sub">
-      Final-year <strong>Information Technology</strong> student at York University.<br>
-      Building with <strong>Python · Java · SQL · Azure · AI/ML</strong>.<br>
-      Certified in <strong>AZ-900 & AI-900</strong>. Graduating June 2026.
+      <strong>Information Technology</strong> graduate, York University (June 2026).<br>
+      Building with <strong>Python · Java · SQL · AI/ML</strong>.<br>
+      Studying for <strong>AZ-900 & AI-900</strong>.
       <br><span class="hero-avail">Open to Canada & Middle East</span>
     </p>
     <div class="hero-ctas">
@@ -200,8 +200,8 @@ footer p { font-family: var(--mono); font-size: 11px; color: var(--muted); lette
       <div class="stat-label"><strong>Years Experience</strong>AI systems, tech support & ops</div>
     </div>
     <div class="stat-card">
-      <div class="stat-num">5</div>
-      <div class="stat-label"><strong>Certifications</strong>Azure AZ-900, AI-900, Google IT & more</div>
+      <div class="stat-num">3</div>
+      <div class="stat-label"><strong>Certifications</strong>Google IT, Python, Web Dev · AZ-900 & AI-900 in progress</div>
     </div>
     <div class="stat-card">
       <div class="stat-num">4</div>
@@ -224,19 +224,19 @@ footer p { font-family: var(--mono); font-size: 11px; color: var(--muted); lette
     </div>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p>I'm a final-year <strong>Information Technology</strong> student at York University graduating June 2026, focused on <strong>data analysis, cloud computing, and AI</strong>. I'm drawn to the intersection of intelligent systems and real-world operations — building things that solve actual problems at scale.</p>
-        <p>For three years I worked as an <strong>Automotive AI Surveillance Technician</strong>, deploying and maintaining AI-powered systems in a live fleet environment. That gave me something most new grads don't have: genuine exposure to how AI performs under real operational pressure, not just in a classroom.</p>
+        <p>I'm an <strong>Information Technology</strong> graduate from York University (June 2026), focused on <strong>data analysis, cloud computing, and AI</strong>. I'm drawn to the intersection of intelligent systems and real-world operations — building things that solve actual problems at scale.</p>
+        <p>Since 2022 I've worked as an <strong>Automotive AI Surveillance Technician</strong>, deploying and maintaining AI-powered systems in a live fleet environment. That gave me something most new grads don't have: genuine exposure to how AI performs under real operational pressure, not just in a classroom.</p>
         <p>I'm fluent in <strong>English and Arabic</strong>, conversational in French, and actively pursuing opportunities in <strong>Canada and Middle East</strong> — particularly in data, cloud, and AI-adjacent roles where I can grow fast and make a real impact.</p>
-        <p>Currently preparing for <strong>AZ-104</strong> (Azure Administrator) and the <strong>Google Advanced Data Analytics</strong> certificate to deepen my cloud and data expertise.</p>
+        <p>Currently preparing for <strong>AZ-900</strong> (Azure Fundamentals) and <strong>AI-900</strong> (Azure AI Fundamentals) to deepen my cloud and AI expertise.</p>
       </div>
       <div class="about-aside reveal">
         <div>
           <p class="block-title">Certifications</p>
-          <div class="cert-item"><span class="cert-check">✓</span><div>Microsoft Azure Fundamentals — AZ-900<span class="cert-issuer">Microsoft Learn</span></div></div>
-          <div class="cert-item"><span class="cert-check">✓</span><div>AI Fundamentals — AI-900<span class="cert-issuer">Microsoft Learn</span></div></div>
           <div class="cert-item"><span class="cert-check">✓</span><div>Google IT Support Professional<span class="cert-issuer">Coursera</span></div></div>
           <div class="cert-item"><span class="cert-check">✓</span><div>Introduction to Python Programming<span class="cert-issuer">SoloLearn</span></div></div>
           <div class="cert-item"><span class="cert-check">✓</span><div>HTML, CSS & JavaScript<span class="cert-issuer">freeCodeCamp</span></div></div>
+          <div class="cert-item"><span class="cert-check" style="opacity:.55">…</span><div>Microsoft Azure Fundamentals — AZ-900<span class="cert-issuer">In progress</span></div></div>
+          <div class="cert-item"><span class="cert-check" style="opacity:.55">…</span><div>Azure AI Fundamentals — AI-900<span class="cert-issuer">In progress</span></div></div>
         </div>
         <div>
           <p class="block-title">Technical Skills</p>
@@ -266,28 +266,27 @@ footer p { font-family: var(--mono); font-size: 11px; color: var(--muted); lette
         <div>
           <p class="project-idx">001 · FEATURED</p>
           <h3 class="project-title">Medical Appointment No-Show Prediction</h3>
-          <p class="project-desc">ML model trained on 110,527 real hospital appointments to predict patient no-shows. Full pipeline: data preprocessing, feature engineering (wait time, SMS reminders, age groups), model comparison across 3 classifiers, and a Streamlit app for live predictions.</p>
+          <p class="project-desc">Team project (ITEC 3040) predicting patient no-shows from 110,527 real appointments. I handled data cleaning and built the Streamlit app. After the course, I found a date bug that silently dropped 35% of the data; fixing it and adding Gradient Boosting raised AUC from 0.59 to 0.73.</p>
           <div class="project-stack">
             <span class="stack-pill">Python</span><span class="stack-pill">Scikit-learn</span><span class="stack-pill">Pandas</span><span class="stack-pill">Streamlit</span><span class="stack-pill">ML</span>
           </div>
           <a href="https://github.com/samhadd-ad/Medical-Appointment-noShow" target="_blank" class="project-link">View on GitHub →</a>
         </div>
         <div class="terminal">
-          <div><span class="cmd">$</span> python src/train.py</div>
-          <div><span class="ok">✓</span> Loading dataset... <span class="val">110,527 rows</span></div>
-          <div><span class="ok">✓</span> Feature engineering complete</div>
-          <div><span class="ok">✓</span> Logistic Regression  AUC = <span class="val">0.6512</span></div>
-          <div><span class="ok">✓</span> Random Forest        AUC = <span class="val">0.7401</span></div>
-          <div><span class="ok">✓</span> Gradient Boosting    AUC = <span class="val">0.7634</span></div>
-          <div><span class="ok">✓</span> Model saved → <span class="val">outputs/model.pkl</span></div>
+          <div><span class="cmd">$</span> python improved_model.py</div>
+          <div><span class="ok">✓</span> Rows after cleaning: <span class="val">110,521</span></div>
+          <div><span class="ok">✓</span> No-show rate, same-day: <span class="val">4.6%</span> · booked ahead: <span class="val">28.5%</span></div>
+          <div><span class="ok">✓</span> Logistic Regression  AUC = <span class="val">0.665</span></div>
+          <div><span class="ok">✓</span> Random Forest        AUC = <span class="val">0.700</span></div>
+          <div><span class="ok">✓</span> Gradient Boosting    AUC = <span class="val">0.731</span></div>
         </div>
       </div>
 
       <div class="project-card reveal">
         <p class="project-idx">002</p>
         <h3 class="project-title">Resume Analyzer</h3>
-        <p class="project-desc">AI-powered tool that parses resume PDFs, extracts skills using NLP, compares them against a job description, and outputs a keyword match score with missing skills identified.</p>
-        <div class="project-stack"><span class="stack-pill">Python</span><span class="stack-pill">PyPDF2</span><span class="stack-pill">NLP</span><span class="stack-pill">AI</span></div>
+        <p class="project-desc">Python tool that reads a resume PDF, finds technical skills with spaCy and a curated skill list, compares them with a job description, and reports a match score plus missing skills.</p>
+        <div class="project-stack"><span class="stack-pill">Python</span><span class="stack-pill">PyPDF2</span><span class="stack-pill">spaCy</span><span class="stack-pill">NLP</span></div>
         <a href="https://github.com/samhadd-ad/resume-analyzer" target="_blank" class="project-link">View on GitHub →</a>
       </div>
 
@@ -302,7 +301,7 @@ footer p { font-family: var(--mono); font-size: 11px; color: var(--muted); lette
       <div class="project-card reveal">
         <p class="project-idx">004</p>
         <h3 class="project-title">Student Portal Backend</h3>
-        <p class="project-desc">Backend system with user authentication, course management, and task tracking. Built with Node.js and MongoDB — demonstrating RESTful API design, database integration, and session management.</p>
+        <p class="project-desc">Backend system with user authentication, course management, and task tracking. Built with Node.js and MongoDB — demonstrating RESTful API design, JWT authentication, and per-user data ownership.</p>
         <div class="project-stack"><span class="stack-pill">Node.js</span><span class="stack-pill">MongoDB</span><span class="stack-pill">REST API</span><span class="stack-pill">JavaScript</span></div>
         <a href="https://github.com/samhadd-ad/Student-Portal" target="_blank" class="project-link">View on GitHub →</a>
       </div>
@@ -321,7 +320,7 @@ footer p { font-family: var(--mono); font-size: 11px; color: var(--muted); lette
     </div>
     <div class="exp-timeline">
       <div class="exp-item reveal">
-        <p class="exp-date">2022 — 2025</p>
+        <p class="exp-date">2022 — Present</p>
         <h3 class="exp-role">AUTOMOTIVE AI SURVEILLANCE TECHNICIAN</h3>
         <p class="exp-company">AEROPORT TAXI & LIMOUSINE · Toronto, Canada</p>
         <ul class="exp-bullets">
@@ -332,7 +331,7 @@ footer p { font-family: var(--mono); font-size: 11px; color: var(--muted); lette
         </ul>
       </div>
       <div class="exp-item reveal">
-        <p class="exp-date">2022 — 2025</p>
+        <p class="exp-date">2022 — Present</p>
         <h3 class="exp-role">CUSTOMER SERVICE REPRESENTATIVE</h3>
         <p class="exp-company">AEROPORT TAXI & LIMOUSINE · Toronto, Canada</p>
         <ul class="exp-bullets">
@@ -347,7 +346,7 @@ footer p { font-family: var(--mono); font-size: 11px; color: var(--muted); lette
 
 <!-- CONTACT -->
 <div id="contact-wrap">
-  <p class="contact-eyebrow reveal">// Graduating June 2026 · Available for full-time roles</p>
+  <p class="contact-eyebrow reveal">// IT Graduate, June 2026 · Available for full-time roles</p>
   <h2 class="contact-heading reveal">LET'S<br><span>TALK</span></h2>
   <p class="contact-sub reveal">Targeting data, cloud & AI roles in Canada and Middle East.<br>Fluent in English & Arabic. Open to relocation.</p>
   <div class="contact-links reveal">
